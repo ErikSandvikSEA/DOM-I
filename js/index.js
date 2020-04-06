@@ -67,7 +67,7 @@ ctaImg.src = ctaContent[2]
 
 // MAIN CONTENT 
 const mainContent = Object.values(siteContent["main-content"])
-console.log(mainContent)
+// console.log(mainContent)
 // h4 
 const mainh4 = document.querySelectorAll('.text-content h4')
 // console.log(mainh4)
@@ -96,3 +96,23 @@ mainPContent(4,10)
 const middleImg = document.getElementById('middle-img')
 // console.log(middleImg)
 middleImg.setAttribute('src', mainContent[4])
+
+//CONTACT SECTION
+const contactContents = Object.values(siteContent.contact)
+const contacth4 = document.querySelector('.contact h4')
+const contactP = document.querySelectorAll('.contact p')
+contactP.forEach(function(el) {
+  el.classList.add("contact-content")
+})
+contacth4.classList.add('contact-content')
+// console.log(contactContents)
+// console.log(contacth4)
+// console.log(contactP)
+const contactContentClass = document.querySelectorAll('.contact-content')
+// console.log(contactContentClass)
+function contactLoop() {
+  for (let i = 0; i < contactContentClass.length; i++) {
+    contactContentClass[i].textContent =  contactContents[i]
+  }
+}
+contactLoop();
