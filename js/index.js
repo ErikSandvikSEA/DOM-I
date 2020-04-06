@@ -82,7 +82,7 @@ h4Content(4, 9)
 
 //p tags
 const mainP = document.querySelectorAll('.text-content p')
-console.log(mainP)
+// console.log(mainP)
 function mainPContent (nodeListIndex, mainContentIndex) {
   mainP[nodeListIndex].textContent = mainContent[mainContentIndex]
 }
@@ -92,3 +92,7 @@ mainPContent(2,6)
 mainPContent(3,8)
 mainPContent(4,10)
 
+//middle image
+const middleImg = document.getElementById('middle-img')
+// console.log(middleImg)
+middleImg.setAttribute('src', mainContent[4])
