@@ -116,3 +116,8 @@ function contactLoop() {
   }
 }
 contactLoop();
+
+//FOOTER SECTION
+const footerElements = document.querySelectorAll('footer p');
+const footerContent = Object.values(siteContent.footer)
+footerElements[0].textContent = footerContent[0]
