@@ -43,14 +43,24 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 //nav menu
-const navAnchorTags = document.querySelectorAll('nav a');
+const navElements = document.querySelectorAll('nav a');
 const navContents = Object.values(siteContent.nav)
 
 function navLoop() {
-  for (let i = 0; i < navAnchorTags.length; i++) {
-    navAnchorTags[i].textContent = navContents[i]
+  for (let i = 0; i < navElements.length; i++) {
+    navElements[i].textContent = navContents[i]
   }
 }
 navLoop();
 
-
+//cta section
+const ctaContent = Object.values(siteContent.cta)
+//h1
+const ctaH1 = document.querySelector('.cta-text h1')
+ctaH1.textContent = ctaContent[0]
+//button
+const ctaButtonText = document.querySelector('.cta-text button')
+ctaButtonText.textContent = ctaContent[1]
+//image
+const ctaImg = document.querySelector('#cta-img')
+ctaImg.src = ctaContent[2]
