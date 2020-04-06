@@ -44,16 +44,26 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 //nav menu
 const navElements = document.querySelectorAll('nav a');
+const navSection = document.querySelector('nav')
 const navContents = Object.values(siteContent.nav)
+const newImage = document.createElement('img')
+const newP = document.createElement('p')
 
 function navLoop() {
   for (let i = 0; i < navElements.length; i++) {
     navElements[i].textContent = navContents[i]
-    navElements[i].style.color = 'limegreen'
+    navElements[i].style.color = 'limegreen' //changes text color to limegreen
   }
 }
 navLoop();
 
+//adding child elements to the nav
+navSection.appendChild(newImage)
+console.log(navSection)
+newImage.setAttribute('src', "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+newImage.setAttribute('width', '100px')
+navSection.prepend(newP)
+newP.textContent = 'This is cool!'
 //CTA SECTION
 const ctaContent = Object.values(siteContent.cta)
 //h1
