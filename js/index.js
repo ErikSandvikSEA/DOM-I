@@ -49,6 +49,7 @@ const navContents = Object.values(siteContent.nav)
 function navLoop() {
   for (let i = 0; i < navElements.length; i++) {
     navElements[i].textContent = navContents[i]
+    navElements[i].style.color = 'limegreen'
   }
 }
 navLoop();
