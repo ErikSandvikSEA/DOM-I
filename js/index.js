@@ -53,7 +53,7 @@ function navLoop() {
 }
 navLoop();
 
-//cta section
+//CTA SECTION
 const ctaContent = Object.values(siteContent.cta)
 //h1
 const ctaH1 = document.querySelector('.cta-text h1')
@@ -64,3 +64,31 @@ ctaButtonText.textContent = ctaContent[1]
 //image
 const ctaImg = document.querySelector('#cta-img')
 ctaImg.src = ctaContent[2]
+
+// MAIN CONTENT 
+const mainContent = Object.values(siteContent["main-content"])
+console.log(mainContent)
+// h4 
+const mainh4 = document.querySelectorAll('.text-content h4')
+// console.log(mainh4)
+function h4Content (nodeListIndex, mainContentIndex) {
+  mainh4[nodeListIndex].textContent = mainContent[mainContentIndex]
+}
+h4Content(0, 0)
+h4Content(1, 2)
+h4Content(2, 5)
+h4Content(3, 7)
+h4Content(4, 9)
+
+//p tags
+const mainP = document.querySelectorAll('.text-content p')
+console.log(mainP)
+function mainPContent (nodeListIndex, mainContentIndex) {
+  mainP[nodeListIndex].textContent = mainContent[mainContentIndex]
+}
+mainPContent(0,1)
+mainPContent(1,3)
+mainPContent(2,6)
+mainPContent(3,8)
+mainPContent(4,10)
+
