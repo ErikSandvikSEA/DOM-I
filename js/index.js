@@ -14,29 +14,121 @@ const siteContent = {
     "img-src": "img/header-img.png"
   },
   "main-content": {
-    "features-h4":"Features",
+    "features-h4": "Features",
     "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "about-h4":"About",
+    "about-h4": "About",
     "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "middle-img-src": "img/mid-page-accent.jpg",
-    "services-h4":"Services",
+    "services-h4": "Services",
     "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "product-h4":"Product",
+    "product-h4": "Product",
     "product-content": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "vision-h4":"Vision",
+    "vision-h4": "Vision",
     "vision-content": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
   },
   "contact": {
-    "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
-    "phone" : "1 (888) 888-8888",
-    "email" : "sales@greatidea.io",
+    "contact-h4": "Contact",
+    "address": "123 Way 456 Street Somewhere, USA",
+    "phone": "1 (888) 888-8888",
+    "email": "sales@greatidea.io",
   },
   "footer": {
-    "copyright" : "Copyright Great Idea! 2018"
+    "copyright": "Copyright Great Idea! 2018"
   },
 };
 
 // Example: Update the img src for the logo
+console.log('working')
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//nav menu
+const navElements = document.querySelectorAll('nav a');
+const navSection = document.querySelector('nav')
+const navContents = Object.values(siteContent.nav)
+const newImage = document.createElement('img')
+const newP = document.createElement('p')
+
+function navLoop() {
+  for (let i = 0; i < navElements.length; i++) {
+    navElements[i].textContent = navContents[i]
+    navElements[i].style.color = 'limegreen' //changes text color to limegreen
+  }
+}
+navLoop();
+
+//adding child elements to the nav
+navSection.appendChild(newImage)
+console.log(navSection)
+newImage.setAttribute('src', "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
+newImage.setAttribute('width', '100px')
+navSection.prepend(newP)
+newP.textContent = 'This is cool!'
+//CTA SECTION
+const ctaContent = Object.values(siteContent.cta)
+//h1
+const ctaH1 = document.querySelector('.cta-text h1')
+ctaH1.textContent = ctaContent[0]
+//button
+const ctaButtonText = document.querySelector('.cta-text button')
+ctaButtonText.textContent = ctaContent[1]
+//image
+const ctaImg = document.querySelector('#cta-img')
+ctaImg.src = ctaContent[2]
+
+// MAIN CONTENT 
+const mainContent = Object.values(siteContent["main-content"])
+// console.log(mainContent)
+// h4 
+const mainh4 = document.querySelectorAll('.text-content h4')
+// console.log(mainh4)
+function h4Content (nodeListIndex, mainContentIndex) {
+  mainh4[nodeListIndex].textContent = mainContent[mainContentIndex]
+}
+h4Content(0, 0)
+h4Content(1, 2)
+h4Content(2, 5)
+h4Content(3, 7)
+h4Content(4, 9)
+
+//p tags
+const mainP = document.querySelectorAll('.text-content p')
+// console.log(mainP)
+function mainPContent (nodeListIndex, mainContentIndex) {
+  mainP[nodeListIndex].textContent = mainContent[mainContentIndex]
+}
+mainPContent(0,1)
+mainPContent(1,3)
+mainPContent(2,6)
+mainPContent(3,8)
+mainPContent(4,10)
+
+//middle image
+const middleImg = document.getElementById('middle-img')
+// console.log(middleImg)
+middleImg.setAttribute('src', mainContent[4])
+
+//CONTACT SECTION
+const contactContents = Object.values(siteContent.contact)
+const contacth4 = document.querySelector('.contact h4')
+const contactP = document.querySelectorAll('.contact p')
+contactP.forEach(function(el) {
+  el.classList.add("contact-content")
+})
+contacth4.classList.add('contact-content')
+// console.log(contactContents)
+// console.log(contacth4)
+// console.log(contactP)
+const contactContentClass = document.querySelectorAll('.contact-content')
+// console.log(contactContentClass)
+function contactLoop() {
+  for (let i = 0; i < contactContentClass.length; i++) {
+    contactContentClass[i].textContent =  contactContents[i]
+  }
+}
+contactLoop();
+
+//FOOTER SECTION
+const footerElements = document.querySelectorAll('footer p');
+const footerContent = Object.values(siteContent.footer)
+footerElements[0].textContent = footerContent[0]
